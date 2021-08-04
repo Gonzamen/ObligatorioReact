@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
       </header>
       <div className="App-content">
         <Switch>
+          <Route path="/" component={Dashboard} exact />
           <Route path="/register" component={Register} exact />
           <Route path="/login" component={Login} exact />
         </Switch>
