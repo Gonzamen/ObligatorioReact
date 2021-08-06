@@ -29,7 +29,7 @@ const Dashboard = ({ history }) => {
         }
       })
       .catch((res) => {
-        setMensajeError(`Error -> ${res.mensaje}`);
+        setMensajeError(`Error al cargar paquetes -> ${res.mensaje}`);
       });
   };
 
@@ -48,7 +48,7 @@ const Dashboard = ({ history }) => {
         }
       })
       .catch((res) => {
-        setMensajeError(`Error -> ${res.mensaje}`);
+        setMensajeError(`Error al cargar ventas -> ${res.mensaje}`);
       });
   };
 
@@ -58,6 +58,7 @@ const Dashboard = ({ history }) => {
   }, []);
 
   return <>
+    <p className="mensaje-error">{setMensajeError}</p>
     <VenderPaquete ventas={obtenerVentas} paquetes={paquetes}/>
   </>;
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types'
 
-const VenderPaquete = props => {
+
+const VenderPaquete = ({ventas, paquetes}) => {
     return (
         <div>
             
@@ -9,8 +9,6 @@ const VenderPaquete = props => {
     )
 }
 
-VenderPaquete.propTypes = {
-
-}
+VenderPaquete.propTypes = {}
 
 export default VenderPaquete
