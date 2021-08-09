@@ -1,16 +1,46 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types'
+import React from "react";
 
-const DestinosTop = props => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const DestinosTop = ({ ventas, paquetes }) => {
+  return (
+    <>
+      <div>
+        <h2>Destinos TOP:</h2>
+        <table>
+          <thead>
+            <tr>
+              {paquetes.map((paq) => {
+                var cant = 0;
+                ventas.map((vent) => {
+                  if (vent.id_paquete === paq.id) {
+                    cant = cant + 1;
+                  }
+                });
+                if (cant > 3) {
+                  return <th>{paq.nombre}</th>;
+                }
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {paquetes.map((paq) => {
+                var cant = 0;
+                ventas.map((vent) => {
+                  if (vent.id_paquete === paq.id) {
+                    cant = cant + 1;
+                  }
+                });
+                if (cant > 3) {
+                  return <td>{cant}</td>;
+                }
+              })}</tr>
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+};
 
-DestinosTop.propTypes = {
+DestinosTop.propTypes = {};
 
-}
-
-export default DestinosTop
+export default DestinosTop;

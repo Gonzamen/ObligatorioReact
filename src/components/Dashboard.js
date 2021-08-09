@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import ListarPaquetes from "./ListarPaquetes";
 import VenderPaquete from "./VenderPaquete";
+import CantVentas from "./CantVentas";
+import PersonasDestino from "./PersonasDestino";
+import DestinosTop from "./DestinosTop";
+import DestinosPromocionar from "./DestinosPromocionar";
 
 const Dashboard = ({ history }) => {
   useEffect(() => {
@@ -58,8 +63,13 @@ const Dashboard = ({ history }) => {
   }, []);
 
   return <>
-    <p className="mensaje-error">{setMensajeError}</p>
+    <p className="mensaje-error">{mensajeError}</p>
     <VenderPaquete ventas={obtenerVentas} paquetes={paquetes}/>
+    <ListarPaquetes ventas={ventas} paquetes={paquetes}/>
+    <CantVentas ventas={ventas}/>
+    <PersonasDestino ventas={ventas} paquetes={paquetes}/>
+    <DestinosTop ventas={ventas} paquetes={paquetes}/>
+    <DestinosPromocionar ventas={ventas} paquetes={paquetes}/>
   </>;
 };
 

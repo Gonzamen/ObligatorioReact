@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types'
+import React from 'react';
 
-const CantVentas = props => {
+const CantVentas = ({ventas}) => {
     return (
+        <>
         <div>
-            
+           <h2>Cantidad de Paquetes Vendidos:</h2>
+           <h4>{ventas.length}</h4>
         </div>
+        </>
     )
 }
 
-CantVentas.propTypes = {
-
-}
+CantVentas.propTypes = {}
 
 export default CantVentas
