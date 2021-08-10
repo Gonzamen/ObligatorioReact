@@ -72,6 +72,7 @@
   position: relative;
 }
 
+
 .input-container input:focus ~ label,
 .input-container input:valid ~ label {
   top: -12px;
@@ -159,6 +160,11 @@ form input[type=button]{
   font-size: 10x;
   margin: 2px;
   background-color: #4fc3a1;
+}
+
+form input[type=button]:active{
+  color: white;
+  box-shadow: 0 0 40px 40px #0b6451 inset;
 }
 
 td {

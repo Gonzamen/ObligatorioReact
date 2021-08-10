@@ -52,9 +52,12 @@ const VenderPaquete = ({ ventas, paquetes }) => {
       })
         .then((res) => res.json())
         .then((res) => {
-          console.log("Seeee!", res);
           if (res.codigo === 200) {
             ventas();
+            setUsuario("");
+            setMayores("");
+            setMenores("");
+            setSeleccionado("");
           }
         })
         .catch((res) => {

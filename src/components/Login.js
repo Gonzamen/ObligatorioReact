@@ -35,7 +35,7 @@ const Login = ({ history }) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("Seeee!", res);
+        console.log("logueado", res);
         if (res.codigo === 200) {
           sessionStorage.setItem("token", res.apiKey);
           sessionStorage.setItem("userId", res.id);
