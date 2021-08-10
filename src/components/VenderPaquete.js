@@ -24,15 +24,19 @@ const VenderPaquete = ({ ventas, paquetes }) => {
   };
 
   const btnClick = () => {
-    if(nombreCliente !== "" && cantidadMayores + cantidadMenores < 10){
+    setMensajeError("");
+    if (
+      nombreCliente !== "" &&
+      cantidadMayores * 1 + cantidadMenores * 1 < 10
+    ) {
       const body = {
         idVendedor: sessionStorage.getItem("userId"),
         nombreCliente,
         idPaquete: paqueteSeleccionado,
-        cantidadMayores,
         cantidadMenores,
+        cantidadMayores,
       };
-  
+
       fetch(`http://destinos.develotion.com/ventas.php`, {
         method: "POST",
         headers: {
@@ -43,50 +47,54 @@ const VenderPaquete = ({ ventas, paquetes }) => {
       })
         .then((res) => res.json())
         .then((res) => {
-          console.log('Seeee!', res);
-          if (res.codigo === 200) {         
+          console.log("Seeee!", res);
+          if (res.codigo === 200) {
             ventas();
           }
         })
         .catch((res) => {
           setMensajeError(`Error al agregar venta -> ${res.mensaje}`);
         });
-    }else{
-      setMensajeError("Nombre vacio y/o cantidad de personas mayor a 10")
+    } else {
+      setMensajeError("Nombre vacio y/o cantidad de personas mayor a 10");
     }
-    setMensajeError("");
   };
 
   return (
     <>
-    <div>
-      <input
-        type="text"
-        placeholder="Ingrese su nombre..."
-        value={nombreCliente}
-        onChange={handleChangeNombre}
-      />
-      <select value={paqueteSeleccionado} onChange={handleChangeSelect}>
-        <option>Seleccione un paquete.</option>
-        {paquetes.map((item, index) => (
-          <option value={item.id}>{item.nombre}</option> 
-        ))}
-      </select>
-      <input
-        type="number"
-        placeholder="Ingrese cantidad adultos..."
-        value={cantidadMayores}
-        onChange={handleChangeMayores}
-      />
-      <input
-        type="number"
-        placeholder="Ingrese cantidad niños..."
-        value={cantidadMenores}
-        onChange={handleChangeMenores}
-      />
-      <input type="button" value="Comprar" onClick={btnClick} />
-      <p className="mensaje-error">{mensajeError}</p>
-    </div>
+      <div>
+        <h2>Realizar Venta</h2>
+        <input
+          type="text"
+          placeholder="Ingrese nombre cliente..."
+          value={nombreCliente}
+          onChange={handleChangeNombre}
+        />
+        <div className="select">
+          <select value={paqueteSeleccionado} onChange={handleChangeSelect}>
+            <option>Seleccione un paquete.</option>
+            {paquetes.map((item, index) => (
+              <option value={item.id}>{item.nombre}</option>
+            ))}
+          </select>
+        </div>
+
+        <input
+          type="number"
+          placeholder="Ingrese cantidad adultos..."
+          value={cantidadMayores}
+          onChange={handleChangeMayores}
+        />
+        <input
+          type="number"
+          placeholder="Ingrese cantidad menores..."
+          value={cantidadMenores}
+          onChange={handleChangeMenores}
+        />
+        <br></br>
+        <input type="button" value="Comprar" onClick={btnClick} />
+        <p className="mensaje-error">{mensajeError}</p>
+      </div>
     </>
   );
 };

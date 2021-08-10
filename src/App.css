@@ -1,10 +1,79 @@
+.App-content {
+  width: 80%;
+}
+
 .App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(94, 185, 162, 0.2);
+}
+
+.text-center {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 23px;
+  margin: -50px 0 80px 0;
+  display: block;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.89);
+  border-radius: 3px;
+  padding: 70px 100px;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+.input-container label {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 16px;
+  color: #fff;
+  pointer-event: none;
+  transition: all 0.5s ease-in-out;
+}
+.input-container input {
+  border: 0;
+  border-bottom: 1px solid #555;
+  background: transparent;
+  width: 100%;
+  padding: 8px 0 5px 0;
+  font-size: 16px;
+  color: #fff;
+}
+.input-container input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #e74c3c;
+}
+.btn {
+  color: #fff;
+  background-color: #3eb980;
+  outline: none;
+  border: 0;
+  color: #fff;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  margin-top: 50px;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+  top: -12px;
+  font-size: 12px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,23 +82,71 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h4 {
+  color: rgba(8, 121, 92, 0.829);
 }
 
-.App-content {
-  width: fit-content;
+h2 {
+  padding: 4px;
+  border-style: dotted;
+  border-bottom: rgba(0, 0, 0, 0.89);
+  border-right: none;
+  border-left: none;
+  border-width: 2px;
+}
+
+td {
+  font-weight: bold;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.mensaje-error {
+  color: darkred;
+}
+
+.table-wrapper {
+  margin: 10px 70px 70px;
+  box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+}
+
+.fl-table {
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: white;
+}
+
+.fl-table td,
+.fl-table th {
+  text-align: center;
+  padding: 8px;
+}
+
+.fl-table td {
+  border-right: 1px solid #f8f8f8;
+  font-size: 12px;
+}
+
+.fl-table thead th {
+  color: #ffffff;
+  background: #4fc3a1;
+}
+
+.fl-table thead th:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+  background: #f8f8f8;
 }
 
 @keyframes App-logo-spin {

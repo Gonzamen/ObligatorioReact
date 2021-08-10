@@ -3,9 +3,9 @@ import React from "react";
 const DestinosTop = ({ ventas, paquetes }) => {
   return (
     <>
-      <div>
-        <h2>Destinos TOP:</h2>
-        <table>
+      <h2>Destinos TOP:</h2>
+      <div className="table-wrapper">
+        <table className="fl-table">
           <thead>
             <tr>
               {paquetes.map((paq) => {
@@ -33,7 +33,8 @@ const DestinosTop = ({ ventas, paquetes }) => {
                 if (cant > 3) {
                   return <td>{cant}</td>;
                 }
-              })}</tr>
+              })}
+            </tr>
           </tbody>
         </table>
       </div>

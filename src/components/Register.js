@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 const Register = ({ history }) => {
   const [usuario, setUsuario] = useState("");
@@ -47,20 +47,27 @@ const Register = ({ history }) => {
 
   return (
     <>
-      <div>
+      <div className="box">
+        <span class="text-center">Register</span>
+        <div className="input-container">
+          <input type="text" value={usuario} onChange={handleChangeUsuario} />
+          <label>Nom. Usuario</label>
+        </div>
+        <div className="input-container">
+          <input
+            type="password"
+            value={password}
+            onChange={handleChangePassword}
+          />
+          <label>Contraseña</label>
+        </div>
+
         <input
-          type="text"
-          placeholder="Ingrese nombre de usuario..."
-          value={usuario}
-          onChange={handleChangeUsuario}
+          className="btn"
+          type="button"
+          value="Registrar"
+          onClick={btnClick}
         />
-        <input
-          type="password"
-          placeholder="Ingrese contraseña..."
-          value={password}
-          onChange={handleChangePassword}
-        />
-        <input type="button" value="Registrar" onClick={btnClick} />
       </div>
       <p className="mensaje-error">{mensajeError}</p>
     </>

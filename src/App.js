@@ -8,9 +8,6 @@ import './App.css';
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-
-      </header>
       <div className="App-content">
         <Switch>
           <Route path="/" component={Dashboard} exact />

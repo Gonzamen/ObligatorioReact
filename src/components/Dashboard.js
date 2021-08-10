@@ -6,10 +6,11 @@ import CantVentas from "./CantVentas";
 import PersonasDestino from "./PersonasDestino";
 import DestinosTop from "./DestinosTop";
 import DestinosPromocionar from "./DestinosPromocionar";
+import GraficasPreciosDestinos from "./GraficasPreciosDestinos";
 
 const Dashboard = ({ history }) => {
   useEffect(() => {
-    if (sessionStorage.getItem("token") === "") {
+    if (sessionStorage.getItem("token") === null) {
       history.push("/login");
     }
   }, []);
@@ -68,6 +69,7 @@ const Dashboard = ({ history }) => {
     <ListarPaquetes ventas={ventas} paquetes={paquetes}/>
     <CantVentas ventas={ventas}/>
     <PersonasDestino ventas={ventas} paquetes={paquetes}/>
+    <GraficasPreciosDestinos paquetes={paquetes}/>
     <DestinosTop ventas={ventas} paquetes={paquetes}/>
     <DestinosPromocionar ventas={ventas} paquetes={paquetes}/>
   </>;
