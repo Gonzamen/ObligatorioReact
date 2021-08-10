@@ -31,7 +31,7 @@ const DestinosTop = ({ ventas, paquetes }) => {
                   }
                 });
                 if (cant > 3) {
-                  return <td>{cant}</td>;
+                  return <td>Cantidad Vendidos: {cant}</td>;
                 }
               })}
             </tr>

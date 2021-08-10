@@ -14,6 +14,10 @@ const Login = ({ history }) => {
     setPassword(value);
   };
 
+  const btnClickRegister = () => {
+    history.push("/register");
+  }
+
   const btnClick = () => {
     const body = {
       usuario,
@@ -67,6 +71,13 @@ const Login = ({ history }) => {
           type="button"
           value="Entrar"
           onClick={btnClick}
+        />
+        <br></br>
+        <input
+          className="btn"
+          type="button"
+          value="Registrarse"
+          onClick={btnClickRegister}
         />
       </div>
       <p className="mensaje-error">{mensajeError}</p>

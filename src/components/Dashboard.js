@@ -21,7 +21,7 @@ const Dashboard = ({ history }) => {
   const idUsuario = sessionStorage.getItem("userId");
 
   const obtenerPaquetes = () => {
-    fetch('http://destinos.develotion.com/paquetes.php', {
+    fetch("http://destinos.develotion.com/paquetes.php", {
       method: "GET",
       headers: {
         apikey: sessionStorage.getItem("token"),
@@ -63,16 +63,19 @@ const Dashboard = ({ history }) => {
     obtenerVentas();
   }, []);
 
-  return <>
-    <p className="mensaje-error">{mensajeError}</p>
-    <VenderPaquete ventas={obtenerVentas} paquetes={paquetes}/>
-    <ListarPaquetes ventas={ventas} paquetes={paquetes}/>
-    <CantVentas ventas={ventas}/>
-    <PersonasDestino ventas={ventas} paquetes={paquetes}/>
-    <GraficasPreciosDestinos paquetes={paquetes}/>
-    <DestinosTop ventas={ventas} paquetes={paquetes}/>
-    <DestinosPromocionar ventas={ventas} paquetes={paquetes}/>
-  </>;
+  return (
+    <>
+      <h1>Bienvenido. Gestor de Ventas</h1>
+      <p className="mensaje-error">{mensajeError}</p>
+      <VenderPaquete ventas={obtenerVentas} paquetes={paquetes} />
+      <ListarPaquetes ventas={ventas} paquetes={paquetes} />
+      <CantVentas ventas={ventas} />
+      <PersonasDestino ventas={ventas} paquetes={paquetes} />
+      <GraficasPreciosDestinos paquetes={paquetes} />
+      <DestinosTop ventas={ventas} paquetes={paquetes} />
+      <DestinosPromocionar ventas={ventas} paquetes={paquetes} />
+    </>
+  );
 };
 
 Dashboard.propTypes = {};

@@ -31,7 +31,6 @@ const Register = ({ history }) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("Seeee!", res);
         if (res.codigo === 200) {
           sessionStorage.setItem("token", res.apiKey);
           sessionStorage.setItem("userId", res.id);
@@ -48,7 +47,7 @@ const Register = ({ history }) => {
   return (
     <>
       <div className="box">
-        <span class="text-center">Register</span>
+        <span className="text-center">Register</span>
         <div className="input-container">
           <input type="text" value={usuario} onChange={handleChangeUsuario} />
           <label>Nom. Usuario</label>

@@ -27,7 +27,12 @@ const VenderPaquete = ({ ventas, paquetes }) => {
     setMensajeError("");
     if (
       nombreCliente !== "" &&
-      cantidadMayores * 1 + cantidadMenores * 1 < 10
+      paqueteSeleccionado !== "" &&
+      paqueteSeleccionado !== "none" &&
+      cantidadMayores >= 0 &&
+      cantidadMenores >= 0 &&
+      cantidadMayores * 1 + cantidadMenores * 1 < 10 &&
+      cantidadMayores * 1 + cantidadMenores * 1 >= 1
     ) {
       const body = {
         idVendedor: sessionStorage.getItem("userId"),
@@ -56,13 +61,13 @@ const VenderPaquete = ({ ventas, paquetes }) => {
           setMensajeError(`Error al agregar venta -> ${res.mensaje}`);
         });
     } else {
-      setMensajeError("Nombre vacio y/o cantidad de personas mayor a 10");
+      setMensajeError("Datos incorrectos, verifique todos los campos.");
     }
   };
 
   return (
     <>
-      <div>
+      <form>
         <h2>Realizar Venta</h2>
         <input
           type="text"
@@ -72,7 +77,7 @@ const VenderPaquete = ({ ventas, paquetes }) => {
         />
         <div className="select">
           <select value={paqueteSeleccionado} onChange={handleChangeSelect}>
-            <option>Seleccione un paquete.</option>
+            <option value="none">Seleccione un paquete</option>
             {paquetes.map((item, index) => (
               <option value={item.id}>{item.nombre}</option>
             ))}
@@ -81,20 +86,20 @@ const VenderPaquete = ({ ventas, paquetes }) => {
 
         <input
           type="number"
-          placeholder="Ingrese cantidad adultos..."
+          placeholder="Ingrese cantidad adultos"
           value={cantidadMayores}
           onChange={handleChangeMayores}
         />
         <input
           type="number"
-          placeholder="Ingrese cantidad menores..."
+          placeholder="Ingrese cantidad menores"
           value={cantidadMenores}
           onChange={handleChangeMenores}
         />
         <br></br>
-        <input type="button" value="Comprar" onClick={btnClick} />
+        <input type="button" value="Vender" onClick={btnClick} />
         <p className="mensaje-error">{mensajeError}</p>
-      </div>
+      </form>
     </>
   );
 };
